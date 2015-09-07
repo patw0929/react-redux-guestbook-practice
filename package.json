@@ -1,0 +1,35 @@
+{
+  "name": "react-redux-guestbook-practice",
+  "version": "1.0.0",
+  "description": "React + Redux Guestbook Practice project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "react.js",
+    "redux",
+    "react-router",
+    "guestbook",
+    "practice"
+  ],
+  "author": "patw <patw.hi@gmail.com> (http://patw.me/)",
+  "license": "MIT",
+  "dependencies": {
+    "css-loader": "^0.17.0",
+    "file-loader": "^0.8.4",
+    "node-sass": "^3.3.2",
+    "react": "^0.13.3",
+    "react-redux": "^2.1.1",
+    "react-router": "^0.13.3",
+    "redux": "^2.0.0",
+    "sass-loader": "^2.0.1",
+    "style-loader": "^0.12.3",
+    "superagent": "^1.3.0",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.4.3"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.6.5"
+  }
+}
