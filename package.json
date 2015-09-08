@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "React + Redux Guestbook Practice project",
   "scripts": {
-    "build": "npm run clean && webpack",
+    "build": "npm run clean && npm run lint && webpack",
     "clean": "rm -rf dist",
     "deploy": "npm run dist && gh-pages -d dist",
     "dist": "npm run build -- --config webpack.config.production.js",
     "lint": "eslint src",
-    "start": "node server.js",
+    "start": "npm run build && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,8 +19,15 @@
     "guestbook",
     "practice"
   ],
-  "author": "patw <patw.hi@gmail.com> (http://patw.me/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patw0929/react-redux-guestbook-practice.git"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patw0929/react-redux-guestbook-practice/issues"
+  },
+  "author": "patw <patw.hi@gmail.com> (http://patw.me/)",
   "dependencies": {
     "history": "^1.8.4",
     "isomorphic-fetch": "^2.1.1",
@@ -48,7 +55,7 @@
     "style-loader": "^0.12.3",
     "superagent": "^1.3.0",
     "url-loader": "^0.5.6",
-    "webpack": "^1.4.3",
+    "webpack": "^1.12.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.0.0",
     "webpack-dev-server": "^1.6.5"

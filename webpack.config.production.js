@@ -11,8 +11,6 @@ var webpack = require('webpack'),
 
 module.exports = {
   devtool: 'eval',
-  watch: true,
-
   entry: {
     app: './src/index.js'
   },
@@ -20,7 +18,7 @@ module.exports = {
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: ''
   },
 
   externals: {
