@@ -5,8 +5,9 @@
  */
 
 var webpack = require('webpack'),
-    path = require('path');
-var eslintrcPath = path.resolve(__dirname, '.eslintrc');
+    path = require('path'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    eslintrcPath = path.resolve(__dirname, '.eslintrc');
 
 module.exports = {
   devtool: 'eval',
@@ -19,7 +20,7 @@ module.exports = {
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'dist'),
-    publicPath: ''
+    publicPath: '/'
   },
 
   externals: {
@@ -39,7 +40,11 @@ module.exports = {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin()
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+      template: './index.template.html'
+    })
   ],
 
   resolve: {

@@ -6,8 +6,9 @@
  */
 
 var webpack = require('webpack'),
-    path = require('path');
-var eslintrcPath = path.resolve(__dirname, '.eslintrc');
+    path = require('path'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    eslintrcPath = path.resolve(__dirname, '.eslintrc');
 
 module.exports = {
   devtool: 'eval',
@@ -21,7 +22,7 @@ module.exports = {
   output: {
     filename: 'app.js',
     path: path.join(__dirname, 'dist'),
-    publicPath: '/assets/'
+    publicPath: '/'
   },
 
   stats: {
@@ -56,7 +57,11 @@ module.exports = {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+      template: './index.template.html'
+    })
   ],
 
   eslint: {
