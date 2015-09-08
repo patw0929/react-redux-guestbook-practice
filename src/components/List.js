@@ -8,7 +8,7 @@ class List extends Component {
   }
 
   static propTypes = {
-    items: PropTypes.object
+    items: PropTypes.array
   }
 
   render() {

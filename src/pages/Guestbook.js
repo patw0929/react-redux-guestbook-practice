@@ -15,7 +15,7 @@ class Guestbook extends Component {
   }
 
   static propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.array,
     dispatch: PropTypes.func
   }
 
