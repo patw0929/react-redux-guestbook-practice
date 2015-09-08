@@ -51,7 +51,9 @@
   <script>
     __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__
   </script>
-  <script type="text/javascript" src="./assets/app.js"></script>
+  {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+  <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
+  {% } %}
 
   <script>hljs.initHighlightingOnLoad();</script>
 </body>
