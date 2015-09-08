@@ -21,10 +21,6 @@ module.exports = {
     publicPath: ''
   },
 
-  externals: {
-    react: 'react'
-  },
-
   stats: {
     colors: true,
     reasons: false
