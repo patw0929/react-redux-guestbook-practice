@@ -8,11 +8,11 @@
 var webpack = require('webpack'),
     path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    eslintrcPath = path.resolve(__dirname, '.eslintrc');
+    eslintrcPath = path.resolve(__dirname, '.eslintrc'),
+    myPublicPath = '/';
 
 module.exports = {
   devtool: 'eval',
-  watch: true,
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
@@ -22,7 +22,7 @@ module.exports = {
   output: {
     filename: 'app.js',
     path: path.join(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: myPublicPath
   },
 
   stats: {
@@ -60,7 +60,8 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: './index.template.html'
+      template: './index.template.html',
+      publicPath: myPublicPath
     })
   ],
 

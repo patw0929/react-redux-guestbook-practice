@@ -51,6 +51,9 @@
   <script>
     __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__
   </script>
+  <script>
+    var basePath = '{%=o.webpackConfig.output.publicPath%}';
+  </script>
   {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
   <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
   {% } %}

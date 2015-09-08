@@ -7,7 +7,8 @@
 var webpack = require('webpack'),
     path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    eslintrcPath = path.resolve(__dirname, '.eslintrc');
+    eslintrcPath = path.resolve(__dirname, '.eslintrc'),
+    myPublicPath = '/react-redux-guestbook-practice/';
 
 module.exports = {
   devtool: 'eval',
@@ -18,7 +19,7 @@ module.exports = {
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'dist'),
-    publicPath: ''
+    publicPath: myPublicPath
   },
 
   stats: {
@@ -37,7 +38,8 @@ module.exports = {
     new webpack.optimize.AggressiveMergingPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: './index.template.html'
+      template: './index.template.html',
+      publicPath: myPublicPath
     })
   ],
 

@@ -18,13 +18,14 @@ const createStoreWithMiddleware = applyMiddleware(
 
 const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
+const basePath = window.basePath;
 
 function renderRoutes(history) {
   return (
     <Router history={history}>
       <Route component={Application}>
-        <Route path="/" component={Guestbook} />
-        <Route path="/about" component={About} />
+        <Route path={basePath} component={Guestbook} />
+        <Route path={`${basePath}about`} component={About} />
       </Route>
     </Router>
   );
