@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import './Application.scss';
 
-const basePath = window.basePath;
-
 class Application extends Component {
   constructor(props, context) {
     super(props, context);
@@ -18,8 +16,8 @@ class Application extends Component {
       <div>
         <div>
           <ul className="nav nav-tabs">
-            <li role="presentation" className={this.props.location.pathname === `${basePath}about` ? 'active' : ''}><Link to={`${basePath}about`}>About</Link></li>
-            <li role="presentation" className={this.props.location.pathname === `${basePath}` ? 'active' : ''}><Link to={basePath}>Guestbook</Link></li>
+            <li role="presentation" className={this.props.location.pathname === `/about` ? 'active' : ''}><Link to={`/about`}>About</Link></li>
+            <li role="presentation" className={this.props.location.pathname === `/` ? 'active' : ''}><Link to={`/`}>Guestbook</Link></li>
           </ul>
         </div>
 

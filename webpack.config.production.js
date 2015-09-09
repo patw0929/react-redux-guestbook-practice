@@ -7,8 +7,7 @@
 var webpack = require('webpack'),
     path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    eslintrcPath = path.resolve(__dirname, '.eslintrc'),
-    myPublicPath = '/react-redux-guestbook-practice/';
+    eslintrcPath = path.resolve(__dirname, '.eslintrc');
 
 module.exports = {
   devtool: 'eval',
@@ -19,7 +18,7 @@ module.exports = {
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'dist'),
-    publicPath: myPublicPath
+    publicPath: ''
   },
 
   stats: {
@@ -34,12 +33,17 @@ module.exports = {
         warnings: false
       }
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      },
+      '__DEVTOOLS__': false
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: './index.template.html',
-      publicPath: myPublicPath
+      template: './index.template.html'
     })
   ],
 
