@@ -3,8 +3,6 @@ import React, { Component, PropTypes, findDOMNode } from 'react';
 class Form extends Component {
   constructor(props) {
     super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   static propTypes = {
@@ -46,7 +44,7 @@ class Form extends Component {
 
         <div className="form-group">
           <div className="col-md-offset-2 col-md-10">
-            <button id="submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
+            <button id="submit" className="btn btn-default" onClick={::this.handleSubmit}>Submit</button>
           </div>
         </div>
       </form>
