@@ -1,17 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import routes from './routes';
-import * as reducers from './reducers/index';
+import reducers from './reducers/index';
 
 const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware // lets us dispatch() functions
+  thunkMiddleware, // lets us dispatch() functions
 )(createStore);
-
-const reducer = combineReducers(reducers);
-const store = createStoreWithMiddleware(reducer);
 
 export default class App extends Component {
   static propTypes = {
@@ -21,7 +18,7 @@ export default class App extends Component {
   render() {
     const { history } = this.props;
     return (
-      <Provider store={store}>
+      <Provider store={createStoreWithMiddleware(reducers)}>
         <Router history={history} routes={routes} />
       </Provider>
     );

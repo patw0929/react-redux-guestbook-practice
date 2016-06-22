@@ -1,5 +1,7 @@
 import * as types from './types';
 
+Parse.initialize('bHklL5yx689gtXtiVySt06QzE5jvhYfFqEb6Ky72', 'FTaXjino70CPq9NGxje50cd9Nm1SzIC1Z2o7K6RI');
+
 export function retrieveCommentData(json) {
   let arr = json.map((data) => data.attributes);
 

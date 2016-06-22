@@ -1,6 +1,6 @@
 import * as types from '../actions/types';
 
-export default function guestbookData(state = [], action) {
+export default (state = [], action) => {
   switch (action.type) {
   case types.RETRIEVE_COMMENT_DATA:
     return action.data;
@@ -17,4 +17,4 @@ export default function guestbookData(state = [], action) {
   }
 
   return state;
-}
+};
