@@ -20,7 +20,7 @@ class Form extends Component {
 
     return (
       <form className="guestbook__form form-horizontal"
-        onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+        onSubmit={handleSubmit(this.onSubmit.bind(this))} novalidate>
         <div className={`form-group ${name.touched && name.invalid ? 'has-error' : ''}`}>
           <label htmlFor="name" className="col-md-2 control-label">Name:</label>
           <div className="col-md-10">
@@ -61,6 +61,10 @@ class Form extends Component {
   }
 }
 
+function isEmail(email){
+  return /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/.test( email );
+}
+
 function validate(values) {
   const errors = {};
 
@@ -70,6 +74,10 @@ function validate(values) {
 
   if (!values.email) {
     errors.email = 'Please fill the email';
+  } else {
+    if (!isEmail(values.email)) {
+      errors.email = 'E-mail format is incorrect';
+    }
   }
 
   if (!values.comment) {
