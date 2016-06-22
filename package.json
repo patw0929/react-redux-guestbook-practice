@@ -29,7 +29,6 @@
   },
   "author": "patw <patw.hi@gmail.com> (http://patw.me/)",
   "dependencies": {
-    "history": "^1.8.4",
     "isomorphic-fetch": "^2.1.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
