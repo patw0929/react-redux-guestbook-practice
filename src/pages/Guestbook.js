@@ -41,10 +41,10 @@ class Guestbook extends Component {
   }
 }
 
-function select(state) {
+function mapStateToProps(state) {
   return {
-    data: state.guestbookData
+    data: state.guestbookData,
   };
 }
 
-export default connect(select)(Guestbook);
+export default connect(mapStateToProps)(Guestbook);

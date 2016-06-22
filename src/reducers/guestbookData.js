@@ -1,8 +1,6 @@
-import * as types from '../constants/actionTypes';
+import * as types from '../actions/types';
 
-const initialState = [];
-
-export default function guestbookData(state = initialState, action) {
+export default function guestbookData(state = [], action) {
   switch (action.type) {
   case types.RETRIEVE_COMMENT_DATA:
     return action.data;
@@ -12,12 +10,11 @@ export default function guestbookData(state = initialState, action) {
       {
         name: action.data.item.name,
         email: action.data.item.email,
-        comment: action.data.item.comment
+        comment: action.data.item.comment,
       },
       ...state
     ];
-
-  default:
-    return state;
   }
+
+  return state;
 }

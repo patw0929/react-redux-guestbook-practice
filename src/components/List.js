@@ -2,14 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import Comment from './Comment';
 import './List.scss';
 
-class List extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export default class List extends Component {
   static propTypes = {
-    items: PropTypes.array
-  }
+    items: PropTypes.array,
+  };
 
   render() {
     let result = this.props.items.map((item, index) => {
@@ -32,5 +28,3 @@ class List extends Component {
     );
   }
 }
-
-export default List;

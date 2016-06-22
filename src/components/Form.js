@@ -1,10 +1,7 @@
-import React, { Component, PropTypes, findDOMNode } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export default class Form extends Component {
   static propTypes = {
     actions: PropTypes.object
   }

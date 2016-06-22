@@ -1,14 +1,11 @@
-// import fetch from 'isomorphic-fetch';
-import * as types from '../constants/actionTypes';
+import * as types from './types';
 
 export function retrieveCommentData(json) {
-  let arr = json.map((data) => {
-    return data.attributes;
-  });
+  let arr = json.map((data) => data.attributes);
 
   return {
     type: types.RETRIEVE_COMMENT_DATA,
-    data: arr
+    data: arr,
   };
 }
 
@@ -23,14 +20,6 @@ export function fetchComments() {
       }
     });
   };
-
-  // return dispatch => {
-  //   return fetch(`http://beta.json-generator.com/api/json/get/VkNYH_w6`)
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       dispatch(retrieveCommentData(json))
-  //     });
-  // };
 }
 
 export function saveCommentData(name, email, comment) {
@@ -40,8 +29,8 @@ export function saveCommentData(name, email, comment) {
       item: {
         name: name,
         email: email,
-        comment: comment
-      }
+        comment: comment,
+      },
     }
   };
 }
@@ -59,5 +48,4 @@ export function postComment(name, email, comment) {
       dispatch(saveCommentData(name, email, comment));
     });
   };
-
 }
