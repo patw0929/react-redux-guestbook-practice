@@ -11,12 +11,13 @@ Just for practice. :v: :v: :v:
 
 ## Thanks
 
-* [React](https://github.com/facebook/react) 0.13.3
-* [Redux](https://github.com/gaearon/redux) 2.0.0
-* [React-Redux](https://github.com/rackt/react-redux)
-* [React-Router](https://github.com/rackt/react-router) 1.0.0-beta4
+* [React](https://github.com/facebook/react) v15.1.0
+* [Redux](https://github.com/gaearon/redux) v3.5.2
+* [React-Redux](https://github.com/rackt/react-redux) v4.4.5
+* [React-Router](https://github.com/rackt/react-router) v2.4.1
+* [Redux-Form](https://github.com/erikras/redux-form) v5.2.5
 * [Webpack](https://github.com/webpack/webpack)
-* [Parse](https://parse.com/)
+* [Firebase](https://firebase.google.com/)
 
 
 ## License
