@@ -10,8 +10,6 @@ var config = {
 firebase.initializeApp(config);
 const database = firebase.database();
 
-Parse.initialize('bHklL5yx689gtXtiVySt06QzE5jvhYfFqEb6Ky72', 'FTaXjino70CPq9NGxje50cd9Nm1SzIC1Z2o7K6RI');
-
 export function retrieveCommentData(comments) {
   return {
     type: types.RETRIEVE_COMMENT_DATA,
