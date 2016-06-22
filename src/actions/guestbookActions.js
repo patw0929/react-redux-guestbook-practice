@@ -7,7 +7,7 @@ export function retrieveCommentData(json) {
 
   return {
     type: types.RETRIEVE_COMMENT_DATA,
-    data: arr,
+    payload: arr,
   };
 }
 
@@ -27,7 +27,7 @@ export function fetchComments() {
 export function saveCommentData(name, email, comment) {
   return {
     type: types.SAVE_COMMENT_DATA,
-    data: {
+    payload: {
       item: {
         name: name,
         email: email,
