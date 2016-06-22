@@ -16,6 +16,10 @@ const Comment = (props) => {
         <div className="comment__content">
           Comment: {props.comment}
         </div>
+
+        <div className="comment__created-at">
+          at {new Date(props.created_at).toLocaleString()}
+        </div>
       </div>
     </div>
   );
@@ -25,6 +29,7 @@ Comment.propTypes = {
   name: PropTypes.string,
   email: PropTypes.string,
   comment: PropTypes.string,
+  created_at: PropTypes.number,
 };
 
 export default Comment;

@@ -20,7 +20,8 @@ class List extends Component {
         <Comment key={index}
           name={item.name}
           email={item.email}
-          comment={item.comment} />
+          comment={item.comment}
+          created_at={item.created_at} />
       );
     });
 

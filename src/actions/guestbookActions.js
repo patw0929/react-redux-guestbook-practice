@@ -1,53 +1,56 @@
+import firebase from 'firebase';
 import * as types from './types';
+
+var config = {
+  apiKey: 'AIzaSyA8L9c-7U--zFqqpLNjl0QHGe7LrMD7d9Q',
+  authDomain: 'react-redux-guestbook-practice.firebaseapp.com',
+  databaseURL: 'https://react-redux-guestbook-practice.firebaseio.com',
+  storageBucket: 'react-redux-guestbook-practice.appspot.com',
+};
+firebase.initializeApp(config);
+const database = firebase.database();
 
 Parse.initialize('bHklL5yx689gtXtiVySt06QzE5jvhYfFqEb6Ky72', 'FTaXjino70CPq9NGxje50cd9Nm1SzIC1Z2o7K6RI');
 
-export function retrieveCommentData(json) {
-  let arr = json.map((data) => data.attributes);
-
+export function retrieveCommentData(comments) {
   return {
     type: types.RETRIEVE_COMMENT_DATA,
-    payload: arr,
+    payload: comments,
   };
 }
 
 export function fetchComments() {
-  let Guestbook = Parse.Object.extend('Guestbook');
-  let query = new Parse.Query(Guestbook);
-
   return dispatch => {
-    query.descending('createdAt').find({
-      success: (results) => {
-        dispatch(retrieveCommentData(results));
+    const comments = [];
+    database.ref('comments').orderByChild('created_at').once('value', snapshot => {
+      const data = snapshot.val();
+      for (const key in data) {
+        if ({}.hasOwnProperty.call(data, key)) {
+          comments.push(data[key]);
+        }
       }
+      comments.sort((a, b) => {
+        const createdA = a.created_at;
+        const createdB = b.created_at;
+        return createdB - createdA;
+      });
+      dispatch(retrieveCommentData(comments));
     });
-  };
-}
-
-export function saveCommentData(name, email, comment) {
-  return {
-    type: types.SAVE_COMMENT_DATA,
-    payload: {
-      item: {
-        name: name,
-        email: email,
-        comment: comment,
-      },
-    }
   };
 }
 
 export function postComment(name, email, comment) {
-  let Guestbook = Parse.Object.extend('Guestbook');
-  let data = new Guestbook();
-
   return dispatch => {
-    data.save({
-      name: name,
-      email: email,
-      comment: comment
-    }).then(() => {
-      dispatch(saveCommentData(name, email, comment));
-    });
+    const newCommentKey = database.ref().child('comments').push().key;
+    const created_at = +new Date();
+    const updates = {};
+    updates['/comments/' + newCommentKey] = {
+      name,
+      email,
+      comment,
+      created_at,
+    };
+    database.ref().update(updates);
+    dispatch(fetchComments());
   };
 }

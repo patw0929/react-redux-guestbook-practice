@@ -53,7 +53,7 @@ class Form extends Component {
 
         <div className="form-group">
           <div className="col-md-offset-2 col-md-10">
-            <button type="submit" className="btn btn-default">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
           </div>
         </div>
       </form>
