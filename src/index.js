@@ -1,12 +1,11 @@
 import React from 'react';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import createHashHistory from 'history/lib/createHashHistory';
+import ReactDOM from 'react-dom';
+import { browserHistory, hashHistory } from 'react-router';
 import App from './App';
 
 // Use hash location for Github Pages
 // but switch to HTML5 history locally.
 const history = process.env.NODE_ENV === 'production' ?
-  createHashHistory() :
-  createBrowserHistory();
+  hashHistory : browserHistory;
 
-React.render(<App history={history} />, document.getElementById('app'));
+ReactDOM.render(<App history={history} />, document.getElementById('app'));
