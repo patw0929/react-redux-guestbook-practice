@@ -29,6 +29,7 @@
   },
   "author": "patw <patw.hi@gmail.com> (http://patw.me/)",
   "dependencies": {
+    "firebase": "^3.0.5",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
