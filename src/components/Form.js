@@ -20,7 +20,7 @@ class Form extends Component {
 
     return (
       <form className="guestbook__form form-horizontal"
-        onSubmit={handleSubmit(this.onSubmit.bind(this))} novalidate>
+        onSubmit={handleSubmit(this.onSubmit.bind(this))} noValidate>
         <div className={`form-group ${name.touched && name.invalid ? 'has-error' : ''}`}>
           <label htmlFor="name" className="col-md-2 control-label">Name:</label>
           <div className="col-md-10">
